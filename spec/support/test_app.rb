@@ -20,8 +20,10 @@ class TestApp
     end
   end
 
-  get '/poltergeist/test.js' do
-    File.read("#{POLTERGEIST_PUBLIC}/test.js")
+  Dir.glob("#{POLTERGEIST_PUBLIC}/*") do |path|
+    get "/poltergeist/#{File.basename(path)}" do
+      File.read(path)
+    end
   end
 
   get '/poltergeist/jquery.min.js' do
