@@ -22,16 +22,16 @@ class TestApp
 
   Dir.glob("#{POLTERGEIST_PUBLIC}/*") do |path|
     get "/poltergeist/#{File.basename(path)}" do
-      File.read(path)
+      send_file path
     end
   end
 
   get '/poltergeist/jquery.min.js' do
-    File.read("#{POLTERGEIST_PUBLIC}/jquery-1.11.3.min.js")
+    send_file "#{POLTERGEIST_PUBLIC}/jquery-1.11.3.min.js"
   end
 
   get '/poltergeist/jquery-ui.min.js' do
-    File.read("#{POLTERGEIST_PUBLIC}/jquery-ui-1.11.4.min.js")
+    send_file "#{POLTERGEIST_PUBLIC}/jquery-ui-1.11.4.min.js"
   end
 
   get '/poltergeist/unexist.png' do
