@@ -1,5 +1,10 @@
 require 'capybara/spec/test_app'
 
+def set_next fn
+  $bz = fn
+  puts "Next refresh will be #{$bz}"
+end
+
 class TestApp
   configure do
     set :protection, :except => :frame_options
@@ -24,6 +29,28 @@ class TestApp
     get "/poltergeist/#{File.basename(path)}" do
       send_file path
     end
+  end
+
+  get '/controlpanel/bz' do
+    set_next 'bz_next'
+    send_file  "#{POLTERGEIST_PUBLIC}/bz.html"
+  end
+
+  get '/controlpanel/guestbook_features/52/guestbooks/52/edit' do
+    puts "Responding with #{$bz}"
+    send_file  "#{POLTERGEIST_PUBLIC}/#{$bz}.js"
+  end
+
+  post '/controlpanel/comments/1599' do
+    headers['X-Flash'] = '[["notice","Deletion worked"]]'
+    set_next 'bz_after_delete'
+    ''
+  end
+
+  put '/controlpanel/comments/1601/approve' do
+    headers['X-Flash'] = '[["notice","Approval worked"]]'
+    set_next 'bz_after_approve'
+    ''
   end
 
   get '/poltergeist/jquery.min.js' do

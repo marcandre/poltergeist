@@ -1,0 +1,54 @@
+/*
+  Builds on top of controlpanel.css by removing styles
+*/
+/* line 11, ../../app/assets/stylesheets/controlpanel_print.scss */
+#header_wrap,
+#header-alerts,
+a.print,
+.no_print {
+  display: none;
+}
+
+/* line 16, ../../app/assets/stylesheets/controlpanel_print.scss */
+#container,
+#page_content {
+  width: 100%;
+  padding: 0;
+}
+
+/* line 21, ../../app/assets/stylesheets/controlpanel_print.scss */
+#container {
+  box-shadow: none;
+}
+
+/* line 29, ../../app/assets/stylesheets/controlpanel_print.scss */
+#controlpanel-container #view-site-bar, #controlpanel-container #page-header, #controlpanel-container #left-col, #controlpanel-container div.highlight_box, #controlpanel-container div.profiler-results, #controlpanel-container footer {
+  display: none !important;
+}
+
+/* line 34, ../../app/assets/stylesheets/controlpanel_print.scss */
+section#app #main-col {
+  border-left: none;
+}
+
+/* line 38, ../../app/assets/stylesheets/controlpanel_print.scss */
+html, body {
+  height: auto;
+  background-color: #fff;
+  color: #000;
+}
+
+/* line 44, ../../app/assets/stylesheets/controlpanel_print.scss */
+body {
+  padding-top: 0;
+}
+
+/* line 46, ../../app/assets/stylesheets/controlpanel_print.scss */
+table.receipt {
+  border-color: #ccc;
+}
+
+/* line 51, ../../app/assets/stylesheets/controlpanel_print.scss */
+#usersite-container, #page-edit-header, .wysiwyg-loading, .navigation-menu, #ckeditor-toolbar {
+  display: none;
+}
