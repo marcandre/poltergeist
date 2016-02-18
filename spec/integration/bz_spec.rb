@@ -26,7 +26,7 @@ module Capybara::Poltergeist
       @session.should have_content('Random comment #22!')
 
       # Delete last comment:
-      @session.find(:css, '#comment_1599 .interaction_link.destroy_link i').click
+      @session.find(:css, '#comment_1599 .btn.delete').click
       @session.should have_content 'Are you sure you want to delete this item'
       @session.find(:css, '#zoogle_dialog a.negative').click
       sleep 1
